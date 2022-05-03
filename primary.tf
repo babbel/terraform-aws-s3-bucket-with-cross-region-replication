@@ -18,7 +18,7 @@ resource "aws_s3_bucket_versioning" "primary" {
   }
 }
 
-resource "aws_s3_bucket_replicaton_configuration" "primary" {
+resource "aws_s3_bucket_replication_configuration" "primary" {
   provider = aws.primary
 
   depends_on = [aws_s3_bucket_versioning.primary]

@@ -27,7 +27,7 @@ EOS
 
 variable "tags" {
   type    = map(string)
-  default = {} # Use structural Object Type in Terraform 0.12
+  default = {}
 
   description = <<EOS
 Tags to be assigned to the buckets.

@@ -18,11 +18,6 @@ resource "aws_s3_bucket_versioning" "secondary" {
   }
 }
 
-resource "aws_s3_bucket_acl" "secondary" {
-  bucket = aws_s3_bucket.secondary.bucket
-  acl    = "private"
-}
-
 data "aws_iam_policy_document" "secondary" {
   provider = aws.secondary
 

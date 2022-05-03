@@ -100,9 +100,9 @@ resource "aws_s3_bucket_policy" "primary" {
 <details>
 <summary>Configuring an ACL for the primary bucket</summary>
 
-You can add a
-[canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl)
-to the primary bucket, or set up your own grants, using a `aws_s3_bucket_acl` resource.
+You can add
+[canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl)
+to the buckets, or set up your own grants, using an `aws_s3_bucket_acl` resource.
 
 ```tf
 module "s3-backups-foo" {
@@ -116,8 +116,6 @@ resource "aws_s3_bucket_acl" "primary" {
   acl    = "private"
 }
 ```
-
-Please note: The canned ACL of the secondary bucket is always set to `"private"`.
 
 </details>
 

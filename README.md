@@ -1,6 +1,6 @@
 # S3 buckets with cross-region replication
 
-This module creates two versionized S3 buckets in different regions with cross-region replication.
+This module creates two versioned S3 buckets in different regions with cross-region replication.
 
 ## Usage
 
@@ -28,7 +28,12 @@ module "s3-backups-foo" {
 
 ## Customizing the buckets
 
-Both buckets are provided as outputs – so you can further customize them.
+Both buckets are provided as outputs – so you can further customize them
+outside of this module.
+
+:warning: Please note: You cannot customize the bucket versioning.
+The versioning configuration provided by this module is required for
+the replication to work.
 
 <details>
 <summary>Configuring server-side encryption</summary>

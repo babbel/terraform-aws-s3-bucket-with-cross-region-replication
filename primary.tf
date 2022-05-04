@@ -30,7 +30,7 @@ resource "aws_s3_bucket_replication_configuration" "primary" {
   rule {
     id = aws_s3_bucket.secondary.bucket
 
-    filter {}
+    filter {} # rule requires no filter but attr must be specified
 
     status = "Enabled"
 

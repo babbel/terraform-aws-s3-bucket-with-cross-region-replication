@@ -2,6 +2,9 @@
 
 This module creates two versioned S3 buckets in different regions with cross-region replication.
 
+The replication configuration created by this module is V2, see
+[Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) for details. **Delete marker replication is enabled.**
+
 ## Usage
 
 Example:

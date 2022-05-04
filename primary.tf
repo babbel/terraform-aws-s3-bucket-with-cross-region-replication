@@ -34,6 +34,10 @@ resource "aws_s3_bucket_replication_configuration" "primary" {
 
     status = "Enabled"
 
+    delete_marker_replication {
+      status = "Enabled"
+    }
+
     destination {
       bucket = aws_s3_bucket.secondary.arn
     }

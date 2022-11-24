@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.2
+
+- [Ensure every resource and data source is only using explicitly defined providers](https://github.com/babbel/terraform-aws-s3-bucket-with-cross-region-replication/pull/4)
+
 ## v1.0.1
 
 - [Enable delete-marker replication](https://github.com/babbel/terraform-aws-s3-bucket-with-cross-region-replication/pull/2)

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.0
+
+- [Relax version constraints for modules](https://github.com/babbel/terraform-aws-s3-bucket-with-cross-region-replication/pull/8)
+
 ## v1.0.2
 
 - [Ensure every resource and data source is only using explicitly defined providers](https://github.com/babbel/terraform-aws-s3-bucket-with-cross-region-replication/pull/4)

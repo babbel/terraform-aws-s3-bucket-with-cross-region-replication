@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.0
+
+- [Add aws_s3_bucket_ownership_controls resource for buckets](https://github.com/babbel/terraform-aws-s3-bucket-with-cross-region-replication/pull/10)
+
 ## v1.1.0
 
 - [Relax version constraints for modules](https://github.com/babbel/terraform-aws-s3-bucket-with-cross-region-replication/pull/8)

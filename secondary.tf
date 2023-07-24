@@ -18,6 +18,14 @@ resource "aws_s3_bucket_versioning" "secondary" {
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "secondary" {
+  bucket = aws_s3_bucket.secondary.bucket
+
+  rule {
+    object_ownership = "BucketOwnerEnforced"
+  }
+}
+
 data "aws_iam_policy_document" "secondary" {
   provider = aws.secondary
 

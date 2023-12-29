@@ -46,16 +46,16 @@ module "s3-backups-foo" {
   # see above
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "primary" {
+resource "aws_s3_bucket_public_access_block" "primary" {
   provider = aws.primary
 
   bucket = module.s3-backups-foo.primary.bucket
 
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
+  block_public_acls  = true
+  ignore_public_acls = true
+
+  block_public_policy     = true
+  restrict_public_buckets = true # forbids setting cross-account access policies as well
 }
 ```
 

@@ -39,29 +39,6 @@ The versioning configuration provided by this module is required for
 the replication to work.
 
 <details>
-<summary>Configuring server-side encryption</summary>
-
-```tf
-module "s3-backups-foo" {
-  # see above
-}
-
-resource "aws_s3_bucket_server_side_encryption_configuration" "primary" {
-  provider = aws.primary
-
-  bucket = module.s3-backups-foo.primary.bucket
-
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
-}
-```
-
-</details>
-
-<details>
 <summary>Configuring an object lifecycle</summary>
 
 ```tf
@@ -100,28 +77,6 @@ resource "aws_s3_bucket_policy" "primary" {
 
   bucket = module.s3-backups-foo.primary.bucket
   policy = "YOUR POLICY HERE"
-}
-```
-
-</details>
-
-<details>
-<summary>Configuring an ACL for the primary bucket</summary>
-
-You can add
-[canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl)
-to the buckets, or set up your own grants, using an `aws_s3_bucket_acl` resource.
-
-```tf
-module "s3-backups-foo" {
-  # see above
-}
-
-resource "aws_s3_bucket_acl" "primary" {
-  provider = aws.primary
-
-  bucket = module.s3-backups-foo.primary.bucket
-  acl    = "private"
 }
 ```
 

@@ -21,11 +21,6 @@ module "s3-backups-foo" {
 
   primary_name   = "example-primary"
   secondary_name = "example-secondary"
-
-  tags = {
-    app = "example"
-    env = "production"
-  }
 }
 ```
 

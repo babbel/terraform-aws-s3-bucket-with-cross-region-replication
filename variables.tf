@@ -1,3 +1,12 @@
+variable "default_tags" {
+  type    = map(string)
+  default = {}
+
+  description = <<EOS
+Map of tags assigned to all AWS resources created by this module.
+EOS
+}
+
 variable "force_destroy" {
   type    = string
   default = false
@@ -17,6 +26,15 @@ Name of bucket in created via the `aws.primary` AWS provider.
 EOS
 }
 
+variable "primary_s3_bucket_tags" {
+  type    = map(string)
+  default = {}
+
+  description = <<EOS
+Map of tags assigned to the primary S3 bucket.
+EOS
+}
+
 variable "secondary_name" {
   type = string
 
@@ -25,11 +43,11 @@ Name of bucket in created via the `aws.secondary` AWS provider.
 EOS
 }
 
-variable "tags" {
+variable "secondary_s3_bucket_tags" {
   type    = map(string)
   default = {}
 
   description = <<EOS
-Tags to be assigned to the buckets.
+Map of tags assigned to the secondary S3 bucket.
 EOS
 }

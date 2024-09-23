@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "secondary" {
 
   force_destroy = var.force_destroy
 
-  tags = var.default_tags
+  tags = merge(var.default_tags, var.secondary_s3_bucket_tags)
 }
 
 resource "aws_s3_bucket_versioning" "secondary" {

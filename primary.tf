@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "primary" {
 
   force_destroy = var.force_destroy
 
-  tags = var.tags
+  tags = var.default_tags
 }
 
 resource "aws_s3_bucket_versioning" "primary" {

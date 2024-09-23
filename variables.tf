@@ -1,3 +1,12 @@
+variable "default_tags" {
+  type    = map(string)
+  default = {}
+
+  description = <<EOS
+Map of tags assigned to all AWS resources created by this module.
+EOS
+}
+
 variable "force_destroy" {
   type    = string
   default = false
@@ -22,14 +31,5 @@ variable "secondary_name" {
 
   description = <<EOS
 Name of bucket in created via the `aws.secondary` AWS provider.
-EOS
-}
-
-variable "tags" {
-  type    = map(string)
-  default = {}
-
-  description = <<EOS
-Map of tags assigned to all AWS resources created by this module.
 EOS
 }

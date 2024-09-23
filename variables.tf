@@ -30,6 +30,6 @@ variable "tags" {
   default = {}
 
   description = <<EOS
-Tags to be assigned to the buckets.
+Map of tags assigned to all AWS resources created by this module.
 EOS
 }

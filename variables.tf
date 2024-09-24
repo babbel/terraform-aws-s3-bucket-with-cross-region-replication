@@ -26,10 +26,28 @@ Name of bucket in created via the `aws.primary` AWS provider.
 EOS
 }
 
+variable "primary_s3_bucket_tags" {
+  type    = map(string)
+  default = {}
+
+  description = <<EOS
+Map of tags assigned to the primary S3 bucket created by this module. Tags in this map will override tags in `var.default_tags`.
+EOS
+}
+
 variable "secondary_name" {
   type = string
 
   description = <<EOS
 Name of bucket in created via the `aws.secondary` AWS provider.
+EOS
+}
+
+variable "secondary_s3_bucket_tags" {
+  type    = map(string)
+  default = {}
+
+  description = <<EOS
+Map of tags assigned to the secondary S3 bucket created by this module. Tags in this map will override tags in `var.default_tags`.
 EOS
 }

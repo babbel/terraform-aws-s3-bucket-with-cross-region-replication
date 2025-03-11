@@ -30,7 +30,10 @@ resource "aws_s3_bucket_replication_configuration" "primary" {
   rule {
     id = aws_s3_bucket.secondary.bucket
 
-    filter {} # rule requires no filter but attr must be specified
+    # applies to all objects in the bucket:
+    # using `filter` requiers setting the prefix attriburte.
+    # the empty prefix ensures all objects are matched.
+    filter { prefix = "" }
 
     status = "Enabled"
 

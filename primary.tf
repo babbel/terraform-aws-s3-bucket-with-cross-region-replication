@@ -102,7 +102,7 @@ data "aws_iam_policy_document" "primary-https-only" {
 
 resource "aws_s3_bucket_policy" "primary" {
   provider = aws.primary
-  bucket = aws_s3_bucket.primary.bucket
-  policy = data.aws_iam_policy_document.primary-https-only.json
+  bucket   = aws_s3_bucket.primary.bucket
+  policy   = data.aws_iam_policy_document.primary-https-only.json
 }
 

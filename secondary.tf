@@ -61,6 +61,6 @@ data "aws_iam_policy_document" "secondary-https-only" {
 resource "aws_s3_bucket_policy" "secondary" {
   provider = aws.secondary
 
-  bucket   = aws_s3_bucket.secondary.bucket
-  policy   = data.aws_iam_policy_document.secondary-https-only.json
+  bucket = aws_s3_bucket.secondary.bucket
+  policy = data.aws_iam_policy_document.secondary-https-only.json
 }

@@ -31,3 +31,36 @@ data "aws_iam_policy_document" "secondary" {
     resources = ["${aws_s3_bucket.secondary.arn}/*"]
   }
 }
+
+data "aws_iam_policy_document" "secondary-https-only" {
+  provider = aws.secondary
+
+  statement {
+    sid     = "DenyNonHTTPS"
+    effect  = "Deny"
+    actions = ["s3:*"]
+
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+
+    resources = [
+      aws_s3_bucket.secondary.arn,
+      "${aws_s3_bucket.secondary.arn}/*",
+    ]
+
+    condition {
+      test     = "Bool"
+      variable = "aws:SecureTransport"
+      values   = ["false"]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "secondary" {
+  provider = aws.secondary
+
+  bucket = aws_s3_bucket.secondary.bucket
+  policy = data.aws_iam_policy_document.secondary-https-only.json
+}
